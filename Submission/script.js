@@ -6,6 +6,14 @@
  */
 
 const getBotReply = (msg) => {
+  let level = 1;
+  let name;
+  if (level === 1) {
+    level = 2;
+    // assign name variable
+    name = msg;
+    return `Nice to meet you ${name}. I'm Invest-o-bot (not a financial advisor). I'd like to assist you with some investment advice. First I will need some information about you. To start, how old are you?`;
+  }
   return "Error unknown...";
 };
 

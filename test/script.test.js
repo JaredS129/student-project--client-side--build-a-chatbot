@@ -11,11 +11,12 @@ beforeEach(() => {
 });
 
 describe("getBotReply", () => {
-  it("should reply with [PUT YOUR DESCRIPTION HERE]", () => {
-    const botReply1 = getBotReply("Harry");
-    const expectedReply1 = "";
+  it("should reply with your name and next question", () => {
+    const botReply1 = getBotReply("Jared");
+    const expectedReply1 =
+      "Nice to meet you Jared. I'm Invest-o-bot (not a financial advisor). I'd like to assist you with some investment advice. First I will need some information about you. To start, how old are you?";
 
     // Uncomment the following line and update your expectation
-    // expect(botReply1).toEqual(expectedReply1);
+    expect(botReply1).toEqual(expectedReply1);
   });
 });
