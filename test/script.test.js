@@ -19,4 +19,22 @@ describe("getBotReply", () => {
     // Uncomment the following line and update your expectation
     expect(botReply1).toEqual(expectedReply1);
   });
+  it("should return with standard standard investment advice", () => {
+    const botReply1 = getBotReply("Jared");
+    const expectedReply1 =
+      "Nice to meet you Jared. I'm Invest-o-bot (not a financial advisor). I'd like to assist you with some investment advice. First I will need some information about you. To start, how old are you?";
+    expect(botReply1).toEqual(expectedReply1);
+    const botReply2 = getBotReply("31");
+    const expectedReply2 =
+      "31, great, and what is your average annual income?";
+    expect(botReply2).toEqual(expectedReply2);
+  });
+  // it("should show window alert and refresh page", () => {
+  //   const botReply1 = getBotReply("Sarah Connor");
+  //   const expectedReply1 =
+  //   window.alert("You Died, Game Over.");
+  //   window.location.reload();
+  //   // Uncomment the following line and update your expectation
+  //   expect(botReply1).toEqual(expectedReply1);
+  // });
 });
