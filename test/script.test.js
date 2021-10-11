@@ -35,6 +35,14 @@ describe("getBotReply", () => {
     const expectedReply4 =
       "Ok, so you earn $50000 per year and you save $200 of that per week. now for the more personal questions... on a scale from 1 - 10, how much do you enjoy taking risks? (10 = show me the meme stocks, 1 = losing $1 makes me feel sick";
     expect(botReply4).toEqual(expectedReply4);
+    const botReply5 = getBotReply("6");
+    const expectedReply5 =
+      "Jared the risk taker huh? how much money to you have saved already?";
+    expect(botReply5).toEqual(expectedReply5);
+    const botReply6 = getBotReply("50000");
+    const expectedReply6 =
+      "Jared, here's my investment advice for you. Feel free to invest in meme stocks like GameStop and AMC as well as very high risk digital assets like dogecoin, but only with 10% of your weekly savings at most. 45% can be invested mildly volatile things like tech stocks and 30% in more stable crypto currencies like bitcoin. The remaining 20% can be invested in speculative things like tech start-ups and alternative crypto-currencies.";
+    expect(botReply6).toEqual(expectedReply6);
   });
   // it("should show window alert and refresh page", () => {
   //   const botReply1 = getBotReply("Sarah Connor");

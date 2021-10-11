@@ -11,6 +11,8 @@ let name;
 let age;
 let annual;
 let weekly;
+let risk;
+let savings;
 
 const getBotReply = (msg) => {
   if (
@@ -67,7 +69,7 @@ const getBotReply = (msg) => {
   }
   if (level === 4 && msg >= 0 && msg >= annual / 52) {
     weekly = msg;
-    dumb++
+    dumb++;
     // assign weekly variable
     return `That doesn't quite make sense, your weekly savings should be less than your annual income divided by 52`;
   }
@@ -81,6 +83,54 @@ const getBotReply = (msg) => {
     weekly = msg;
     dumb++;
     return `$${weekly} is not a valid amount, try typing a real number without symbols or commas`;
+  }
+  if (level === 5 && msg <= 1) {
+    level = 6;
+    risk = msg;
+    // assign risk variable
+    return "OK Mr Krabs... how much money do you have saved already?";
+  }
+  if (level === 5 && msg <= 5) {
+    level = 6;
+    risk = msg;
+    // assign risk variable
+    return `${risk}? I mean... learn to live a little. how much money do you have saved already?`;
+  }
+  if (level === 5 && msg <= 8) {
+    level = 6;
+    risk = msg;
+    // assign risk variable
+    return `${name} the risk taker huh? how much money to you have saved already?`;
+  }
+  if (level === 5 && msg <= 10) {
+    level = 6;
+    risk = msg;
+    // assign risk variable
+    return `I'm nervous for you ${name} ... how much money to you have saved already?`;
+  }
+  if (level === 5) {
+    risk = msg;
+    dumb++;
+    // assign risk variable
+    return `That's not a number between 1 and 10...`;
+  }
+  if (level === 6) {
+    // assign savings variable
+    savings = msg;
+    let finalOutput;
+    if (level === 6 && msg >= 0 && risk >= 9 && age < 30 && savings < 70000) {
+      finalOutput = `${name}, here's my investment advice for you. Feel free to invest in meme stocks like GameStop and AMC as well as very high risk digital assets like dogecoin, but only with 10% of your weekly savings at most. 45% can be invested mildly volatile things like tech stocks and 30% in more stable crypto currencies like bitcoin. The remaining 20% can be invested in more stable index funds like the S&P500.`;
+      return finalOutput;
+    }
+    if (level === 6 && msg >= 0 && risk >= 6 && age > 30) {
+      finalOutput = `${name}, here's my investment advice for you. Feel free to invest in meme stocks like GameStop and AMC as well as very high risk digital assets like dogecoin, but only with 10% of your weekly savings at most. 45% can be invested mildly volatile things like tech stocks and 30% in more stable crypto currencies like bitcoin. The remaining 20% can be invested in speculative things like tech start-ups and alternative crypto-currencies.`;
+      if (savings >= 100000) {
+        finalOutput =
+          finalOutput +
+          " Also consider investing in property if the market in your area permits a low interest and short term mortgage.";
+      }
+      return finalOutput;
+    }
   }
 
   return "Error unknown...";
