@@ -31,6 +31,10 @@ describe("getBotReply", () => {
     const expectedReply3 =
       "$50000, great! how much of that are you able to save per week?";
     expect(botReply3).toEqual(expectedReply3);
+    const botReply4 = getBotReply("200");
+    const expectedReply4 =
+      "Ok, so you earn $50000 per year and you save $200 of that per week. now for the more personal questions... on a scale from 1 - 10, how much do you enjoy taking risks? (10 = show me the meme stocks, 1 = losing $1 makes me feel sick";
+    expect(botReply4).toEqual(expectedReply4);
   });
   // it("should show window alert and refresh page", () => {
   //   const botReply1 = getBotReply("Sarah Connor");

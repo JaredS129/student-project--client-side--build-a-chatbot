@@ -7,11 +7,12 @@
 
 let level = 1;
 let dumb = 0;
+let name;
+let age;
+let annual;
+let weekly;
 
 const getBotReply = (msg) => {
-  let name;
-  let age;
-  let annual;
   if (
     (level === 1 && msg.toLowerCase() === "sarah connor") ||
     (level === 1 && msg.toLowerCase() === "john connor")
@@ -61,8 +62,25 @@ const getBotReply = (msg) => {
   if (level === 3) {
     // assign annual variable
     annual = msg;
-    dumb++
+    dumb++;
     return `$${annual} is not an income, try typing a real number without symbols or commas`;
+  }
+  if (level === 4 && msg >= 0 && msg >= annual / 52) {
+    weekly = msg;
+    dumb++
+    // assign weekly variable
+    return `That doesn't quite make sense, your weekly savings should be less than your annual income divided by 52`;
+  }
+  if (level === 4 && msg >= 0) {
+    level = 5;
+    weekly = msg;
+    // assign weekly variable
+    return `Ok, so you earn $${annual} per year and you save $${weekly} of that per week. now for the more personal questions... on a scale from 1 - 10, how much do you enjoy taking risks? (10 = show me the meme stocks, 1 = losing $1 makes me feel sick`;
+  }
+  if (level === 4) {
+    weekly = msg;
+    dumb++;
+    return `$${weekly} is not a valid amount, try typing a real number without symbols or commas`;
   }
 
   return "Error unknown...";
