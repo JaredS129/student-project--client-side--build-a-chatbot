@@ -122,6 +122,16 @@ const getBotReply = (msg) => {
       finalOutput = `${name}, here's my investment advice for you. Feel free to invest in meme stocks like GameStop and AMC as well as very high risk digital assets like dogecoin, but only with 10% of your weekly savings at most. 45% can be invested mildly volatile things like tech stocks and 30% in more stable crypto currencies like bitcoin. The remaining 20% can be invested in more stable index funds like the S&P500.`;
       return finalOutput;
     }
+    if (
+      level === 6 &&
+      msg >= 0 &&
+      weekly <= 150 &&
+      age < 40 &&
+      savings < 70000
+    ) {
+      finalOutput = `${name}, here's my investment advice for you. Begin investing 50% of your weekly savings into index funds and dividend stocks, 30% into commodities and 20% into higher risk digital assets like bitcoin and ethereum, but avoid lower market cap crypto currencies.`;
+      return finalOutput;
+    }
     if (level === 6 && msg >= 0 && risk >= 6 && age > 30) {
       finalOutput = `${name}, here's my investment advice for you. Feel free to invest in meme stocks like GameStop and AMC as well as very high risk digital assets like dogecoin, but only with 10% of your weekly savings at most. 45% can be invested mildly volatile things like tech stocks and 30% in more stable crypto currencies like bitcoin. The remaining 20% can be invested in speculative things like tech start-ups and alternative crypto-currencies.`;
       if (savings >= 100000) {
@@ -130,6 +140,27 @@ const getBotReply = (msg) => {
           " Also consider investing in property if the market in your area permits a low interest and short term mortgage.";
       }
       return finalOutput;
+    }
+    if (level === 6 && msg >= 0 && risk < 5 && age < 50) {
+      finalOutput = `${name}, here's my investment advice for you. invest 60% of your weekly savings into index funds and dividend stocks, 35% into commodities and 5% into higher risk digital assets like bitcoin and ethereum, but avoid lower market cap crypto currencies.`;
+      if (savings >= 100000) {
+        finalOutput =
+          finalOutput +
+          " Also consider investing in property if the market in your area permits a low interest and short term mortgage.";
+      }
+      return finalOutput;
+    }
+    if (level === 6 && msg >= 0 && risk >= 5 && age >= 50) {
+      finalOutput = `${name}, here's my investment advice for you. invest 50% of your weekly savings into index funds and dividend stocks and 30% into commodities like gold and silver. consider using 20% to invest in more speculative things like tech start-ups.`;
+      if (savings >= 100000) {
+        finalOutput =
+          finalOutput +
+          " Also consider investing in property if the market in your area permits a low interest and short term mortgage.";
+      }
+      return finalOutput;
+    }
+    if (level === 6) {
+      return `${name}, here's my investment advice for you. invest 60% of your weekly savings into index funds and dividend stocks and 30% into commodities like gold and silver. 10% can got toward any speculative investments you like.`;
     }
   }
 
