@@ -192,6 +192,36 @@ describe("getBotReply", () => {
       "Jared, here's my investment advice for you. invest 60% of your weekly savings into index funds and dividend stocks and 30% into commodities like gold and silver. 10% can got toward any speculative investments you like. Also consider investing in property if the market in your area permits a low interest and short term mortgage.";
     expect(botReply6).toEqual(expectedReply6);
   });
+  it("should return with details of user at any point", () => {
+    const botReply1 = getBotReply("Jared");
+    const expectedReply1 =
+      "Nice to meet you Jared. I'm Invest-o-bot (not a financial advisor). I'd like to assist you with some investment advice. First I will need some information about you. To start, how old are you?";
+    expect(botReply1).toEqual(expectedReply1);
+    const botReply2 = getBotReply("29");
+    const expectedReply2 = "29, great, and what is your average annual income?";
+    expect(botReply2).toEqual(expectedReply2);
+    const botReply3 = getBotReply("120000");
+    const expectedReply3 =
+      "$120000? congratulations! you've come to the right place. how much of that are you able to save per week?";
+    expect(botReply3).toEqual(expectedReply3);
+    const botReply4 = getBotReply("500");
+    const expectedReply4 =
+      "Ok, so you earn $120000 per year and you save $500 of that per week. now for the more personal questions... on a scale from 1 - 10, how much do you enjoy taking risks? (10 = show me the meme stocks, 1 = losing $1 makes me feel sick";
+    expect(botReply4).toEqual(expectedReply4);
+    const botReply5 = getBotReply("8");
+    const expectedReply5 =
+      "Jared the risk taker huh? how much money to you have saved already?";
+    expect(botReply5).toEqual(expectedReply5);
+    const botReply6 = getBotReply("My Details");
+    const expectedReply6 = `Here are the details I have for you so far.. Name: Jared, Age: 29, Annual Income: $120000, Weekly Savings: $500, Risk Tolerance: 8. Tell me your total savings to resume or type "restart" to start over.`;
+    expect(botReply6).toEqual(expectedReply6);
+    const botReply7 = getBotReply("150000");
+    const expectedReply7 = "Jared, here's my investment advice for you. invest 60% of your weekly savings into index funds and dividend stocks and 30% into commodities like gold and silver. 10% can got toward any speculative investments you like. Also consider investing in property if the market in your area permits a low interest and short term mortgage.";
+    expect(botReply7).toEqual(expectedReply7);
+    const botReply8 = getBotReply("My Details");
+    const expectedReply8 = `Here are the details I have for you so far.. Name: Jared, Age: 29, Annual Income: $120000, Weekly Savings: $500, Risk Tolerance: 8, Total Savings: $150000. Type "restart" to start over.`;
+    expect(botReply8).toEqual(expectedReply8);
+  });
 });
 
 // it("should show window alert and refresh page", () => {

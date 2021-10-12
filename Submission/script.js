@@ -24,7 +24,34 @@ const getBotReply = (msg) => {
     weekly = undefined;
     risk = undefined;
     savings = undefined;
-    return "Hi There, What's your name?"
+    return "Hi There, What's your name?";
+  }
+  if (msg.toLowerCase() === "my details") {
+    const nameStr = `Name: ${name}`;
+    const ageStr = `, Age: ${age}`;
+    const annualStr = `, Annual Income: $${annual}`;
+    const weeklyStr = `, Weekly Savings: $${weekly}`;
+    const riskStr = `, Risk Tolerance: ${risk}`;
+    const savingsStr = `, Total Savings: $${savings}`;
+    if (name === undefined) {
+      return "I don't have any of your details yet. Type your name to resume.";
+    }
+    if (age === undefined) {
+      return `Here are the details I have for you so far.. ${nameStr}. Tell me your age to resume or type "restart" to start over.`;
+    }
+    if (annual === undefined) {
+      return `Here are the details I have for you so far.. ${nameStr}${ageStr}. Tell me your annual income to resume or type "restart" to start over.`;
+    }
+    if (weekly === undefined) {
+      return `Here are the details I have for you so far.. ${nameStr}${ageStr}${annualStr}. Tell me how much you save per week to resume or type "restart" to start over.`;
+    }
+    if (risk === undefined) {
+      return `Here are the details I have for you so far.. ${nameStr}${ageStr}${annualStr}${weeklyStr}. Tell me your Risk Tolerance (1 - 10) to resume or type "restart" to start over.`;
+    }
+    if (savings === undefined) {
+      return `Here are the details I have for you so far.. ${nameStr}${ageStr}${annualStr}${weeklyStr}${riskStr}. Tell me your total savings to resume or type "restart" to start over.`;
+    }
+    return `Here are the details I have for you so far.. ${nameStr}${ageStr}${annualStr}${weeklyStr}${riskStr}${savingsStr}. Type "restart" to start over.`;
   }
   if (
     (level === 1 && msg.toLowerCase() === "sarah connor") ||
@@ -130,6 +157,7 @@ const getBotReply = (msg) => {
     savings = msg;
     let finalOutput;
     if (level === 6 && msg >= 0 && risk >= 9 && age < 30 && savings < 70000) {
+      level = 7;
       finalOutput = `${name}, here's my investment advice for you. Feel free to invest in meme stocks like GameStop and AMC as well as very high risk digital assets like dogecoin, but only with 10% of your weekly savings at most. 45% can be invested mildly volatile things like tech stocks and 30% in more stable crypto currencies like bitcoin. The remaining 20% can be invested in more stable index funds like the S&P500.`;
       return finalOutput;
     }
@@ -140,10 +168,12 @@ const getBotReply = (msg) => {
       age < 40 &&
       savings < 70000
     ) {
+      level = 7;
       finalOutput = `${name}, here's my investment advice for you. Begin investing 50% of your weekly savings into index funds and dividend stocks, 30% into commodities and 20% into higher risk digital assets like bitcoin and ethereum, but avoid lower market cap crypto currencies.`;
       return finalOutput;
     }
     if (level === 6 && msg >= 0 && weekly > 150 && risk < 5 && age < 50) {
+      level = 7;
       finalOutput = `${name}, here's my investment advice for you. invest 60% of your weekly savings into index funds and dividend stocks, 35% into commodities and 5% into higher risk digital assets like bitcoin and ethereum, but avoid lower market cap crypto currencies.`;
       if (savings >= 100000) {
         finalOutput =
@@ -153,6 +183,7 @@ const getBotReply = (msg) => {
       return finalOutput;
     }
     if (level === 6 && msg >= 0 && weekly > 150 && risk >= 5 && age >= 50) {
+      level = 7;
       finalOutput = `${name}, here's my investment advice for you. invest 50% of your weekly savings into index funds and dividend stocks and 30% into commodities like gold and silver. consider using 20% to invest in more speculative things like tech start-ups.`;
       if (savings >= 100000) {
         finalOutput =
@@ -162,6 +193,7 @@ const getBotReply = (msg) => {
       return finalOutput;
     }
     if (level === 6 && msg >= 0 && risk >= 6 && age > 30) {
+      level = 7;
       finalOutput = `${name}, here's my investment advice for you. Feel free to invest in meme stocks like GameStop and AMC as well as very high risk digital assets like dogecoin, but only with 10% of your weekly savings at most. 45% can be invested mildly volatile things like tech stocks and 30% in more stable crypto currencies like bitcoin. The remaining 20% can be invested in speculative things like tech start-ups and alternative crypto-currencies.`;
       if (savings >= 100000) {
         finalOutput =
@@ -171,6 +203,7 @@ const getBotReply = (msg) => {
       return finalOutput;
     }
     if (level === 6) {
+      level = 7;
       finalOutput = `${name}, here's my investment advice for you. invest 60% of your weekly savings into index funds and dividend stocks and 30% into commodities like gold and silver. 10% can got toward any speculative investments you like.`;
       if (savings >= 100000) {
         finalOutput =
@@ -179,6 +212,9 @@ const getBotReply = (msg) => {
       }
       return finalOutput;
     }
+  }
+  if (level === 7) {
+    return "type restart to start over"
   }
 
   return "I didn't quite get that, try a more simple response.";
