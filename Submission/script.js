@@ -60,26 +60,36 @@ const getBotReply = (msg) => {
     window.alert("You Died, Game Over.");
     window.location.reload();
   }
+  // converts dollar amount to number if user inputs $ symbol at start of string
+  if (msg.charAt(0) === "$") {
+    msg = msg.substr(1);
+  }
+  // converts to base 10 number if number starts with zeros
+  if (msg.charAt(0) === "0") {
+    msg = parseInt(msg, 10);
+  }
   if (level === 1) {
     level = 2;
     // assign name variable
     name = msg;
     return `Nice to meet you ${name}. I'm Invest-o-bot (not a financial advisor). I'd like to assist you with some investment advice. First I will need some information about you. To start, how old are you?`;
   }
-  if (level === 2 && msg >= 0 && msg < 130) {
+  if (level === 2 && msg > 10 && msg < 130) {
     level = 3;
     // assign age variable
     age = msg;
     return `${age}, great, and what is your average annual income?`;
   }
+  if (level === 2 && msg >= 0 && msg <= 10) {
+    level = 3;
+    age = msg;
+    
+    return `${age}... do you think you might be a little young to be investing? anyhow, how much do you earn per year?`;
+  }
   if (level === 2) {
     age = msg;
     dumb++;
     return `huh? ${age}?? I said tell me HOW OLD YOU ARE.`;
-  }
-  // converts dollar amount to number if user inputs $ symbol at start of string
-  if (msg.charAt(0) === "$") {
-    msg = msg.substr(1);
   }
   if (level === 3 && msg >= 0 && msg <= 20000) {
     level = 4;
@@ -110,6 +120,29 @@ const getBotReply = (msg) => {
     dumb++;
     // assign weekly variable
     return `That doesn't quite make sense, your weekly savings should be less than your annual income divided by 52`;
+  }
+  if (dumb === 3) {
+    dumb++
+    return `You know what.. don't worry, I have enough information now to help you with you make some money. Would you like to know how to get a 1000% return on your money in just a few days with NO work at all? how does that sound ${name}?`;
+  }
+  if (dumb === 4) {
+    if (msg.toLowerCase() === "yes") {
+      dumb++
+      return `Just leave all the hard work to me INVEST-O-BOT! Just give me $1000+ today and I'll use my fancy AI powered investment algorithm to give you a 1000% return in just a few days time guaranteed.`;
+    }
+    dumb = 0
+    if (level === 3) {
+      return "so... where were we? how much was your annual income?"
+    }
+    if (level === 4) {
+      return "so... where were we? how much are you able to save per week?"
+    }
+    if (level === 5) {
+      return "so... where were we? what's your risk tolerance out of 10?"
+    }
+    if (level === 6) {
+      return "so... where were we? how much do you have saved in total?"
+    }
   }
   if (level === 4 && msg >= 0) {
     level = 5;
@@ -147,10 +180,13 @@ const getBotReply = (msg) => {
     return `I'm nervous for you ${name} ... how much money to you have saved already?`;
   }
   if (level === 5) {
-    risk = msg;
     dumb++;
     // assign risk variable
     return `That's not a number between 1 and 10...`;
+  }
+  if (level === 6 && msg < 0 || level === 6 && isNaN(msg)) {
+    dumb++
+    return "That's not an amount... try typing a more basic number without symbols or commas.";
   }
   if (level === 6) {
     // assign savings variable
@@ -214,7 +250,7 @@ const getBotReply = (msg) => {
     }
   }
   if (level === 7) {
-    return "type restart to start over"
+    return "type restart to start over";
   }
 
   return "I didn't quite get that, try a more simple response.";
