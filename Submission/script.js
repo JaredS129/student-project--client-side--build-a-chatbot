@@ -15,6 +15,17 @@ let risk;
 let savings;
 
 const getBotReply = (msg) => {
+  if (msg.toLowerCase() === "restart" || msg.toLowerCase() === "reset") {
+    level = 1;
+    dumb = 0;
+    name = undefined;
+    age = undefined;
+    annual = undefined;
+    weekly = undefined;
+    risk = undefined;
+    savings = undefined;
+    return "Hi There, What's your name?"
+  }
   if (
     (level === 1 && msg.toLowerCase() === "sarah connor") ||
     (level === 1 && msg.toLowerCase() === "john connor")
@@ -136,8 +147,8 @@ const getBotReply = (msg) => {
       finalOutput = `${name}, here's my investment advice for you. invest 60% of your weekly savings into index funds and dividend stocks, 35% into commodities and 5% into higher risk digital assets like bitcoin and ethereum, but avoid lower market cap crypto currencies.`;
       if (savings >= 100000) {
         finalOutput =
-        finalOutput +
-        " Also consider investing in property if the market in your area permits a low interest and short term mortgage.";
+          finalOutput +
+          " Also consider investing in property if the market in your area permits a low interest and short term mortgage.";
       }
       return finalOutput;
     }
@@ -145,8 +156,8 @@ const getBotReply = (msg) => {
       finalOutput = `${name}, here's my investment advice for you. invest 50% of your weekly savings into index funds and dividend stocks and 30% into commodities like gold and silver. consider using 20% to invest in more speculative things like tech start-ups.`;
       if (savings >= 100000) {
         finalOutput =
-        finalOutput +
-        " Also consider investing in property if the market in your area permits a low interest and short term mortgage.";
+          finalOutput +
+          " Also consider investing in property if the market in your area permits a low interest and short term mortgage.";
       }
       return finalOutput;
     }
@@ -170,7 +181,7 @@ const getBotReply = (msg) => {
     }
   }
 
-  return "Error unknown...";
+  return "I didn't quite get that, try a more simple response.";
 };
 
 export { getBotReply };

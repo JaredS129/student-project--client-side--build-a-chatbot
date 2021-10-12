@@ -22,6 +22,26 @@ describe("getBotReply", () => {
     // Uncomment the following line and update your expectation
     expect(botReply1).toEqual(expectedReply1);
   });
+  it("should reset conversation and variables", () => {
+    const botReply1 = getBotReply("Jared");
+    const expectedReply1 =
+      "Nice to meet you Jared. I'm Invest-o-bot (not a financial advisor). I'd like to assist you with some investment advice. First I will need some information about you. To start, how old are you?";
+    expect(botReply1).toEqual(expectedReply1);
+    const botReply2 = getBotReply("35");
+    const expectedReply2 = "35, great, and what is your average annual income?";
+    expect(botReply2).toEqual(expectedReply2);
+    const botReply3 = getBotReply("Reset" || "Restart");
+    const expectedReply3 = "Hi There, What's your name?";
+    expect(botReply3).toEqual(expectedReply3);
+    const botReply4 = getBotReply("Bob");
+    const expectedReply4 =
+      "Nice to meet you Bob. I'm Invest-o-bot (not a financial advisor). I'd like to assist you with some investment advice. First I will need some information about you. To start, how old are you?";
+    expect(botReply4).toEqual(expectedReply4);
+    const botReply5 = getBotReply("50");
+    const expectedReply5 = "50, great, and what is your average annual income?";
+    expect(botReply5).toEqual(expectedReply5);
+  });
+
   it("should return with standard standard investment advice variant 1", () => {
     const botReply1 = getBotReply("Jared");
     const expectedReply1 =
