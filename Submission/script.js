@@ -83,7 +83,7 @@ const getBotReply = (msg) => {
   if (level === 2 && msg >= 0 && msg <= 10) {
     level = 3;
     age = msg;
-    
+
     return `${age}... do you think you might be a little young to be investing? anyhow, how much do you earn per year?`;
   }
   if (level === 2) {
@@ -122,27 +122,30 @@ const getBotReply = (msg) => {
     return `That doesn't quite make sense, your weekly savings should be less than your annual income divided by 52`;
   }
   if (dumb === 3) {
-    dumb++
+    dumb++;
     return `You know what.. don't worry, I have enough information now to help you with you make some money. Would you like to know how to get a 1000% return on your money in just a few days with NO work at all? how does that sound ${name}?`;
   }
   if (dumb === 4) {
     if (msg.toLowerCase() === "yes") {
-      dumb++
+      dumb++;
       return `Just leave all the hard work to me INVEST-O-BOT! Just give me $1000+ today and I'll use my fancy AI powered investment algorithm to give you a 1000% return in just a few days time guaranteed.`;
     }
-    dumb = 0
+    dumb = 0;
     if (level === 3) {
-      return "so... where were we? how much was your annual income?"
+      return "so... where were we? how much was your annual income?";
     }
     if (level === 4) {
-      return "so... where were we? how much are you able to save per week?"
+      return "so... where were we? how much are you able to save per week?";
     }
     if (level === 5) {
-      return "so... where were we? what's your risk tolerance out of 10?"
+      return "so... where were we? what's your risk tolerance out of 10?";
     }
     if (level === 6) {
-      return "so... where were we? how much do you have saved in total?"
+      return "so... where were we? how much do you have saved in total?";
     }
+  }
+  if (dumb === 5) {
+    return `Just send your $1000+ in BTC to this Bitcoin wallet address - 1Hr4U95LVSveZrQhSqpXeetRjszRJ6uac6. Thanks for using Invest-o-Bot.`
   }
   if (level === 4 && msg >= 0) {
     level = 5;
@@ -184,8 +187,8 @@ const getBotReply = (msg) => {
     // assign risk variable
     return `That's not a number between 1 and 10...`;
   }
-  if (level === 6 && msg < 0 || level === 6 && isNaN(msg)) {
-    dumb++
+  if ((level === 6 && msg < 0) || (level === 6 && isNaN(msg))) {
+    dumb++;
     return "That's not an amount... try typing a more basic number without symbols or commas.";
   }
   if (level === 6) {

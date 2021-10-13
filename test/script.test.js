@@ -222,7 +222,7 @@ describe("getBotReply", () => {
     const expectedReply8 = `Here are the details I have for you so far.. Name: Jared, Age: 29, Annual Income: $120000, Weekly Savings: $500, Risk Tolerance: 8, Total Savings: $150000. Type "restart" to start over.`;
     expect(botReply8).toEqual(expectedReply8);
   });
-  it("return assign variables without leading $ symbol or leading zeros", () => {
+  it("omit leading $ symbol or leading zeros input by user", () => {
     const botReply1 = getBotReply("Jared");
     const expectedReply1 =
       "Nice to meet you Jared. I'm Invest-o-bot (not a financial advisor). I'd like to assist you with some investment advice. First I will need some information about you. To start, how old are you?";
