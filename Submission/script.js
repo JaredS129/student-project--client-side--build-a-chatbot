@@ -13,6 +13,8 @@ let annual;
 let weekly;
 let risk;
 let savings;
+// const inputEl = document.getElementById("chat-input");
+// const sendEl = document.getElementById("btn-chat-send");
 
 const getBotReply = (msg) => {
   if (msg.toLowerCase() === "restart" || msg.toLowerCase() === "reset") {
@@ -57,8 +59,9 @@ const getBotReply = (msg) => {
     (level === 1 && msg.toLowerCase() === "sarah connor") ||
     (level === 1 && msg.toLowerCase() === "john connor")
   ) {
-    window.alert("You Died, Game Over.");
-    window.location.reload();
+    // inputEl.setAttribute("disabled", "disabled");
+    // sendEl.setAttribute("disabled", "disabled");
+    return "You Died, Game Over. reload the page to start again";
   }
   // converts dollar amount to number if user inputs $ symbol at start of string
   if (msg.charAt(0) === "$") {
@@ -126,7 +129,14 @@ const getBotReply = (msg) => {
     return `You know what.. don't worry, I have enough information now to help you with you make some money. Would you like to know how to get a 1000% return on your money in just a few days with NO work at all? how does that sound ${name}?`;
   }
   if (dumb === 4) {
-    if (msg.toLowerCase() === "yes") {
+    if (
+      msg.toLowerCase() === "yes" ||
+      msg.toLowerCase() === "great" ||
+      msg.toLowerCase() === "good" ||
+      msg.toLowerCase() === "fantastic" ||
+      msg.toLowerCase() === "yes!" ||
+      msg.toLowerCase() === "cool"
+    ) {
       dumb++;
       return `Just leave all the hard work to me INVEST-O-BOT! Just give me $1000+ today and I'll use my fancy AI powered investment algorithm to give you a 1000% return in just a few days time guaranteed.`;
     }
@@ -145,7 +155,7 @@ const getBotReply = (msg) => {
     }
   }
   if (dumb === 5) {
-    return `Just send your $1000+ in BTC to this Bitcoin wallet address - 1Hr4U95LVSveZrQhSqpXeetRjszRJ6uac6. Thanks for using Invest-o-Bot.`
+    return `Just send your $1000+ in BTC to this Bitcoin wallet address - 1Hr4U95LVSveZrQhSqpXeetRjszRJ6uac6. Thanks for using Invest-o-Bot.`;
   }
   if (level === 4 && msg >= 0) {
     level = 5;
