@@ -13,8 +13,9 @@ let annual;
 let weekly;
 let risk;
 let savings;
-// const inputEl = document.getElementById("chat-input");
-// const sendEl = document.getElementById("btn-chat-send");
+const inputEl = document.getElementById("chat-input");
+const sendEl = document.getElementById("btn-chat-send");
+const imgEl = document.getElementById("robot-img");
 
 const getBotReply = (msg) => {
   // PRE RESPONSE CHECKS
@@ -63,8 +64,9 @@ const getBotReply = (msg) => {
     (level === 1 && msg.toLowerCase() === "sarah connor") ||
     (level === 1 && msg.toLowerCase() === "john connor")
   ) {
-    // inputEl.setAttribute("disabled", "disabled");
-    // sendEl.setAttribute("disabled", "disabled");
+    inputEl.setAttribute("disabled", "disabled");
+    sendEl.setAttribute("disabled", "disabled");
+    imgEl.setAttribute("src", "images/terminator.jpeg")
     return "You Died, Game Over. reload the page to start again";
   }
   // converts dollar amounts to number if user inputs '$' symbol at start of string
