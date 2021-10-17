@@ -13,10 +13,23 @@ let annual;
 let weekly;
 let risk;
 let savings;
-const positiveResponses = ["yes", "great", "good", "fantastic", "awesome", "cool", "yes!", "great!", "good!", "fantastic!", "cool!", "awesome!"];
-// const inputEl = document.getElementById("chat-input");
-// const sendEl = document.getElementById("btn-chat-send");
-// const imgEl = document.getElementById("robot-img");
+const positiveResponses = [
+  "yes",
+  "great",
+  "good",
+  "fantastic",
+  "awesome",
+  "cool",
+  "yes!",
+  "great!",
+  "good!",
+  "fantastic!",
+  "cool!",
+  "awesome!",
+];
+const inputEl = document.getElementById("chat-input");
+const sendEl = document.getElementById("btn-chat-send");
+const imgEl = document.getElementById("robot-img");
 
 const getBotReply = (msg) => {
   // PRE RESPONSE CHECKS
@@ -65,10 +78,18 @@ const getBotReply = (msg) => {
     (level === 1 && msg.toLowerCase() === "sarah connor") ||
     (level === 1 && msg.toLowerCase() === "john connor")
   ) {
-    // inputEl.setAttribute("disabled", "disabled");
-    // sendEl.setAttribute("disabled", "disabled");
-    // sendEl.style.backgroundColor = "#F32B2B";
-    // imgEl.setAttribute("src", "images/terminator.jpeg");
+    if (inputEl) {
+      inputEl.setAttribute("disabled", "disabled");
+    }
+    if (sendEl) {
+      sendEl.setAttribute("disabled", "disabled");
+    }
+    if (sendEl) {
+      sendEl.style.backgroundColor = "#F32B2B";
+    }
+    if (imgEl) {
+      imgEl.setAttribute("src", "images/terminator.jpeg");
+    }
     return "You Died, Game Over. reload the page to start again";
   }
   // converts dollar amounts to number if user inputs '$' symbol at start of string
@@ -146,9 +167,7 @@ const getBotReply = (msg) => {
 
   // SCAM PATH
   if (dumb === 4) {
-    if (
-      positiveResponses.includes(msg.toLowerCase())
-    ) {
+    if (positiveResponses.includes(msg.toLowerCase())) {
       dumb++;
       return `Just leave all the hard work to me INVEST-O-BOT! Just give me $1000+ today and I'll use my fancy AI powered investment algorithm to give you a 1000% return in just a few days time guaranteed.`;
     }

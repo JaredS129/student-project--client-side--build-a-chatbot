@@ -1,9 +1,9 @@
-// Dynamically import modules, so they can be reset between test runs
-// https://github.com/facebook/jest/issues/3236
-// https://www.npmjs.com/package/babel-plugin-dynamic-import-node
 /**
  @jest-environment jsdom
  */
+// Dynamically import modules, so they can be reset between test runs
+// https://github.com/facebook/jest/issues/3236
+// https://www.npmjs.com/package/babel-plugin-dynamic-import-node
 
 let getBotReply;
 
