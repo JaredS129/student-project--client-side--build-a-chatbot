@@ -24,7 +24,7 @@ const renderChatbox = () => {
   for (const message of recentMessages) {
     const markup = `
       <div class="chat-item chat-item-bot">${message.bot.replyMsg}</div>
-      <div class="chat-item chat-item-user">${message.user.inputMsg}</div>
+      <div class="chat-item chat-item-user" id="chat-item-user">${message.user.inputMsg}</div>
     `;
     chatboxHTML += markup;
   }

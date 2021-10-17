@@ -66,7 +66,8 @@ const getBotReply = (msg) => {
   ) {
     inputEl.setAttribute("disabled", "disabled");
     sendEl.setAttribute("disabled", "disabled");
-    imgEl.setAttribute("src", "images/terminator.jpeg")
+    sendEl.style.backgroundColor = "#F32B2B";
+    imgEl.setAttribute("src", "images/terminator.jpeg");
     return "You Died, Game Over. reload the page to start again";
   }
   // converts dollar amounts to number if user inputs '$' symbol at start of string
