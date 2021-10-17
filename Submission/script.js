@@ -17,6 +17,8 @@ let savings;
 // const sendEl = document.getElementById("btn-chat-send");
 
 const getBotReply = (msg) => {
+  // PRE RESPONSE CHECKS
+  // check for 'restart' message
   if (msg.toLowerCase() === "restart" || msg.toLowerCase() === "reset") {
     level = 1;
     dumb = 0;
@@ -28,6 +30,7 @@ const getBotReply = (msg) => {
     savings = undefined;
     return "Hi There, What's your name?";
   }
+  // check for 'my details' message
   if (msg.toLowerCase() === "my details") {
     const nameStr = `Name: ${name}`;
     const ageStr = `, Age: ${age}`;
@@ -55,6 +58,7 @@ const getBotReply = (msg) => {
     }
     return `Here are the details I have for you so far.. ${nameStr}${ageStr}${annualStr}${weeklyStr}${riskStr}${savingsStr}. Type "restart" to start over.`;
   }
+  // game over path
   if (
     (level === 1 && msg.toLowerCase() === "sarah connor") ||
     (level === 1 && msg.toLowerCase() === "john connor")
@@ -63,7 +67,7 @@ const getBotReply = (msg) => {
     // sendEl.setAttribute("disabled", "disabled");
     return "You Died, Game Over. reload the page to start again";
   }
-  // converts dollar amount to number if user inputs $ symbol at start of string
+  // converts dollar amounts to number if user inputs '$' symbol at start of string
   if (msg.charAt(0) === "$") {
     msg = msg.substr(1);
   }
@@ -71,6 +75,8 @@ const getBotReply = (msg) => {
   if (msg.charAt(0) === "0") {
     msg = parseInt(msg, 10);
   }
+
+  // START OF MAIN PATHS
   if (level === 1) {
     level = 2;
     // assign name variable
@@ -118,6 +124,7 @@ const getBotReply = (msg) => {
     dumb++;
     return `$${annual} is not an income, try typing a real number without symbols or commas`;
   }
+  // return error if weekly savings add to more than annual income
   if (level === 4 && msg >= 0 && msg >= annual / 52) {
     weekly = msg;
     dumb++;
@@ -128,6 +135,8 @@ const getBotReply = (msg) => {
     dumb++;
     return `You know what.. don't worry, I have enough information now to help you with you make some money. Would you like to know how to get a 1000% return on your money in just a few days with NO work at all? how does that sound ${name}?`;
   }
+
+  // SCAM PATH
   if (dumb === 4) {
     if (
       msg.toLowerCase() === "yes" ||
@@ -141,6 +150,7 @@ const getBotReply = (msg) => {
       return `Just leave all the hard work to me INVEST-O-BOT! Just give me $1000+ today and I'll use my fancy AI powered investment algorithm to give you a 1000% return in just a few days time guaranteed.`;
     }
     dumb = 0;
+    // revert to regular path if user does not respond positively
     if (level === 3) {
       return "so... where were we? how much was your annual income?";
     }
@@ -157,6 +167,8 @@ const getBotReply = (msg) => {
   if (dumb === 5) {
     return `Just send your $1000+ in BTC to this Bitcoin wallet address - 1Hr4U95LVSveZrQhSqpXeetRjszRJ6uac6. Thanks for using Invest-o-Bot.`;
   }
+
+  // REGULAR PATH CONTINUES
   if (level === 4 && msg >= 0) {
     level = 5;
     weekly = msg;
@@ -194,13 +206,14 @@ const getBotReply = (msg) => {
   }
   if (level === 5) {
     dumb++;
-    // assign risk variable
     return `That's not a number between 1 and 10...`;
   }
   if ((level === 6 && msg < 0) || (level === 6 && isNaN(msg))) {
     dumb++;
     return "That's not an amount... try typing a more basic number without symbols or commas.";
   }
+
+  // FINAL OUTPUTS
   if (level === 6) {
     // assign savings variable
     savings = msg;
@@ -266,6 +279,7 @@ const getBotReply = (msg) => {
     return "type restart to start over";
   }
 
+  // Helpful message if chatbot doesn't understand
   return "I didn't quite get that, try a more simple response.";
 };
 
