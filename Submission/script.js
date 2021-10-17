@@ -34,30 +34,30 @@ const getBotReply = (msg) => {
   // check for 'my details' message
   if (msg.toLowerCase() === "my details") {
     const nameStr = `Name: ${name}`;
-    const ageStr = `, Age: ${age}`;
-    const annualStr = `, Annual Income: $${annual}`;
-    const weeklyStr = `, Weekly Savings: $${weekly}`;
-    const riskStr = `, Risk Tolerance: ${risk}`;
-    const savingsStr = `, Total Savings: $${savings}`;
+    const ageStr = `Age: ${age}`;
+    const annualStr = `Annual Income: $${annual}`;
+    const weeklyStr = `Weekly Savings: $${weekly}`;
+    const riskStr = `Risk Tolerance: ${risk}`;
+    const savingsStr = `Total Savings: $${savings}`;
     if (name === undefined) {
       return "I don't have any of your details yet. Type your name to resume.";
     }
     if (age === undefined) {
-      return `Here are the details I have for you so far.. ${nameStr}. Tell me your age to resume or type "restart" to start over.`;
+      return `Here are the details I have for you so far.. <br>${nameStr}<br>Tell me your age to resume or type "restart" to start over.`;
     }
     if (annual === undefined) {
-      return `Here are the details I have for you so far.. ${nameStr}${ageStr}. Tell me your annual income to resume or type "restart" to start over.`;
+      return `Here are the details I have for you so far.. <br>${nameStr}<br>${ageStr}<br>Tell me your annual income to resume or type "restart" to start over.`;
     }
     if (weekly === undefined) {
-      return `Here are the details I have for you so far.. ${nameStr}${ageStr}${annualStr}. Tell me how much you save per week to resume or type "restart" to start over.`;
+      return `Here are the details I have for you so far.. <br>${nameStr}<br>${ageStr}<br>${annualStr}<br>Tell me how much you save per week to resume or type "restart" to start over.`;
     }
     if (risk === undefined) {
-      return `Here are the details I have for you so far.. ${nameStr}${ageStr}${annualStr}${weeklyStr}. Tell me your Risk Tolerance (1 - 10) to resume or type "restart" to start over.`;
+      return `Here are the details I have for you so far.. <br>${nameStr}<br>${ageStr}<br>${annualStr}<br>${weeklyStr}<br>Tell me your Risk Tolerance (1 - 10) to resume or type "restart" to start over.`;
     }
     if (savings === undefined) {
-      return `Here are the details I have for you so far.. ${nameStr}${ageStr}${annualStr}${weeklyStr}${riskStr}. Tell me your total savings to resume or type "restart" to start over.`;
+      return `Here are the details I have for you so far.. <br>${nameStr}<br>${ageStr}<br>${annualStr}<br>${weeklyStr}<br>${riskStr}<br>Tell me your total savings to resume or type "restart" to start over.`;
     }
-    return `Here are the details I have for you so far.. ${nameStr}${ageStr}${annualStr}${weeklyStr}${riskStr}${savingsStr}. Type "restart" to start over.`;
+    return `Here are the details I have for you so far.. <br>${nameStr}<br>${ageStr}<br>${annualStr}<br>${weeklyStr}<br>${riskStr}<br>${savingsStr}<br>Type "restart" to start over.`;
   }
   // game over path
   if (

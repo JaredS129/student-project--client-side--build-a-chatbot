@@ -316,14 +316,14 @@ describe("getBotReply", () => {
       "Jared the risk taker huh? how much money to you have saved already?";
     expect(botReply5).toEqual(expectedReply5);
     const botReply6 = getBotReply("My Details");
-    const expectedReply6 = `Here are the details I have for you so far.. Name: Jared, Age: 29, Annual Income: $120000, Weekly Savings: $500, Risk Tolerance: 8. Tell me your total savings to resume or type "restart" to start over.`;
+    const expectedReply6 = `Here are the details I have for you so far.. <br>Name: Jared<br>Age: 29<br>Annual Income: $120000<br>Weekly Savings: $500<br>Risk Tolerance: 8<br>Tell me your total savings to resume or type "restart" to start over.`;
     expect(botReply6).toEqual(expectedReply6);
     const botReply7 = getBotReply("150000");
     const expectedReply7 =
       "Jared, here's my investment advice for you. invest 60% of your weekly savings into index funds and dividend stocks and 30% into commodities like gold and silver. 10% can got toward any speculative investments you like. Also consider investing in property if the market in your area permits a low interest and short term mortgage.";
     expect(botReply7).toEqual(expectedReply7);
     const botReply8 = getBotReply("My Details");
-    const expectedReply8 = `Here are the details I have for you so far.. Name: Jared, Age: 29, Annual Income: $120000, Weekly Savings: $500, Risk Tolerance: 8, Total Savings: $150000. Type "restart" to start over.`;
+    const expectedReply8 = `Here are the details I have for you so far.. <br>Name: Jared<br>Age: 29<br>Annual Income: $120000<br>Weekly Savings: $500<br>Risk Tolerance: 8<br>Total Savings: $150000<br>Type "restart" to start over.`;
     expect(botReply8).toEqual(expectedReply8);
   });
   it("should return with message saying no details yet", () => {
