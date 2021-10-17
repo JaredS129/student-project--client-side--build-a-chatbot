@@ -4,6 +4,15 @@ body {
   background-color: #21292e;
 }
 
+::placeholder {
+  font-size: 1.2rem;
+}
+
+strong {
+  font-size: 1.17em;
+  color: #2bf394;
+}
+
 .chatbot-interface {
   display: flex;
   flex-direction: column;
@@ -18,7 +27,21 @@ body {
 }
 
 .robot-img {
-  height: 50vh;
+  max-width: 39rem;
+  height: auto;
+}
+
+.commands {
+  color: #f0f0f0;
+  font-family: "Roboto", sans-serif;
+  display: grid;
+  justify-content: center;
+  margin: 0 2rem;
+}
+
+.info {
+  margin: 0;
+  margin-top: 0.5rem;
 }
 
 .chat-container {
@@ -41,10 +64,11 @@ body {
   padding: 0.3rem 0.7rem;
   margin-right: 1rem;
   color: #2bf394;
+  max-width: 31rem;
 }
 
 .btn-chat-send {
-  width: 10vw;
+  width: 5.5rem;
   font-size: 1.5em;
   overflow: hidden;
   text-overflow: ellipsis;
