@@ -13,6 +13,7 @@ let annual;
 let weekly;
 let risk;
 let savings;
+const positiveResponses = ["yes", "great", "good", "fantastic", "awesome", "cool", "yes!", "great!", "good!", "fantastic!", "cool!", "awesome!"];
 // const inputEl = document.getElementById("chat-input");
 // const sendEl = document.getElementById("btn-chat-send");
 // const imgEl = document.getElementById("robot-img");
@@ -80,7 +81,7 @@ const getBotReply = (msg) => {
   }
   // helpful message if user sends blank input
   if (msg === "") {
-    return "Please type something"
+    return "Please type something";
   }
 
   // START OF MAIN PATHS
@@ -146,12 +147,7 @@ const getBotReply = (msg) => {
   // SCAM PATH
   if (dumb === 4) {
     if (
-      msg.toLowerCase() === "yes" ||
-      msg.toLowerCase() === "great" ||
-      msg.toLowerCase() === "good" ||
-      msg.toLowerCase() === "fantastic" ||
-      msg.toLowerCase() === "yes!" ||
-      msg.toLowerCase() === "cool"
+      positiveResponses.includes(msg.toLowerCase())
     ) {
       dumb++;
       return `Just leave all the hard work to me INVEST-O-BOT! Just give me $1000+ today and I'll use my fancy AI powered investment algorithm to give you a 1000% return in just a few days time guaranteed.`;
