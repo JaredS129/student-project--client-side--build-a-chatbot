@@ -26,6 +26,18 @@ Invest-o-bot will give investment advice to anybody based on variables like age,
 - Input: Sarah Connor
 - Output: (alert) You Died, Game Over.
 
+### If user inputs a blank message, bot returns a helpful response at any point
+
+- Input:
+- Output: Please type something
+- Input: Jared
+- Output: Nice to meet you Jared. I'm Invest-o-bot (not a financial advisor). I'd like to assist you with some investment advice. First I will need some information about you. To start, how old are you?
+- Input:
+- Output: Please type something
+- Input: 31
+- Output: 31, great, and what is your average annual income?
+
+
 ### Should omit leading '$' symbol or any leading zeros input by user
 
 - Start: Hi There, What's your name?

@@ -399,4 +399,21 @@ describe("getBotReply", () => {
       "Jared, here's my investment advice for you. Feel free to invest in meme stocks like GameStop and AMC as well as very high risk digital assets like dogecoin, but only with 10% of your weekly savings at most. 45% can be invested mildly volatile things like tech stocks and 30% in more stable crypto currencies like bitcoin. The remaining 20% can be invested in more stable index funds like the S&P500.";
     expect(botReply6).toEqual(expectedReply6);
   });
+
+  // If user inputs a blank message, bot returns a helpful response at any point
+  it("should return with helpful message to type something", () => {
+    const botReply1 = getBotReply("");
+    const expectedReply1 = "Please type something";
+    expect(botReply1).toEqual(expectedReply1);
+    const botReply2 = getBotReply("Jared");
+    const expectedReply2 =
+      "Nice to meet you Jared. I'm Invest-o-bot (not a financial advisor). I'd like to assist you with some investment advice. First I will need some information about you. To start, how old are you?";
+    expect(botReply2).toEqual(expectedReply2);
+    const botReply3 = getBotReply("");
+    const expectedReply3 = "Please type something";
+    expect(botReply3).toEqual(expectedReply3);
+    const botReply4 = getBotReply("31");
+    const expectedReply4 = "31, great, and what is your average annual income?";
+    expect(botReply4).toEqual(expectedReply4);
+  });
 });

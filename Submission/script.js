@@ -13,9 +13,9 @@ let annual;
 let weekly;
 let risk;
 let savings;
-const inputEl = document.getElementById("chat-input");
-const sendEl = document.getElementById("btn-chat-send");
-const imgEl = document.getElementById("robot-img");
+// const inputEl = document.getElementById("chat-input");
+// const sendEl = document.getElementById("btn-chat-send");
+// const imgEl = document.getElementById("robot-img");
 
 const getBotReply = (msg) => {
   // PRE RESPONSE CHECKS
@@ -64,10 +64,10 @@ const getBotReply = (msg) => {
     (level === 1 && msg.toLowerCase() === "sarah connor") ||
     (level === 1 && msg.toLowerCase() === "john connor")
   ) {
-    inputEl.setAttribute("disabled", "disabled");
-    sendEl.setAttribute("disabled", "disabled");
-    sendEl.style.backgroundColor = "#F32B2B";
-    imgEl.setAttribute("src", "images/terminator.jpeg");
+    // inputEl.setAttribute("disabled", "disabled");
+    // sendEl.setAttribute("disabled", "disabled");
+    // sendEl.style.backgroundColor = "#F32B2B";
+    // imgEl.setAttribute("src", "images/terminator.jpeg");
     return "You Died, Game Over. reload the page to start again";
   }
   // converts dollar amounts to number if user inputs '$' symbol at start of string
@@ -77,6 +77,10 @@ const getBotReply = (msg) => {
   // converts to base 10 number if number starts with zeros
   if (msg.charAt(0) === "0") {
     msg = parseInt(msg, 10);
+  }
+  // helpful message if user sends blank input
+  if (msg === "") {
+    return "Please type something"
   }
 
   // START OF MAIN PATHS
