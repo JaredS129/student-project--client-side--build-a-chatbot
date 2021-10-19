@@ -50,7 +50,7 @@ describe("getBotReply", () => {
     expect(botReply4).toEqual(expectedReply4);
     const botReply5 = getBotReply("9");
     const expectedReply5 =
-      "I'm nervous for you Jared ... how much money to you have saved already?";
+      "I'm nervous for you Jared ... how much money do you have saved already?";
     expect(botReply5).toEqual(expectedReply5);
     const botReply6 = getBotReply("50000");
     const expectedReply6 =
@@ -75,7 +75,7 @@ describe("getBotReply", () => {
     expect(botReply4).toEqual(expectedReply4);
     const botReply5 = getBotReply("6");
     const expectedReply5 =
-      "Jared the risk taker huh? how much money to you have saved already?";
+      "Jared the risk taker huh? how much money do you have saved already?";
     expect(botReply5).toEqual(expectedReply5);
     const botReply6 = getBotReply("50000");
     const expectedReply6 =
@@ -100,7 +100,7 @@ describe("getBotReply", () => {
     expect(botReply4).toEqual(expectedReply4);
     const botReply5 = getBotReply("6");
     const expectedReply5 =
-      "Jared the risk taker huh? how much money to you have saved already?";
+      "Jared the risk taker huh? how much money do you have saved already?";
     expect(botReply5).toEqual(expectedReply5);
     const botReply6 = getBotReply("50000");
     const expectedReply6 =
@@ -150,7 +150,7 @@ describe("getBotReply", () => {
     expect(botReply4).toEqual(expectedReply4);
     const botReply5 = getBotReply("7");
     const expectedReply5 =
-      "Jared the risk taker huh? how much money to you have saved already?";
+      "Jared the risk taker huh? how much money do you have saved already?";
     expect(botReply5).toEqual(expectedReply5);
     const botReply6 = getBotReply("50000");
     const expectedReply6 =
@@ -175,7 +175,7 @@ describe("getBotReply", () => {
     expect(botReply4).toEqual(expectedReply4);
     const botReply5 = getBotReply("8");
     const expectedReply5 =
-      "Jared the risk taker huh? how much money to you have saved already?";
+      "Jared the risk taker huh? how much money do you have saved already?";
     expect(botReply5).toEqual(expectedReply5);
     const botReply6 = getBotReply("150000");
     const expectedReply6 =
@@ -202,7 +202,7 @@ describe("getBotReply", () => {
     expect(botReply4).toEqual(expectedReply4);
     const botReply5 = getBotReply("6");
     const expectedReply5 =
-      "Jared the risk taker huh? how much money to you have saved already?";
+      "Jared the risk taker huh? how much money do you have saved already?";
     expect(botReply5).toEqual(expectedReply5);
     const botReply6 = getBotReply("120000");
     const expectedReply6 =
@@ -290,7 +290,7 @@ describe("getBotReply", () => {
     expect(botReply9).toEqual(expectedReply9);
     const botReply10 = getBotReply("10");
     const expectedReply10 =
-      "I'm nervous for you Jared ... how much money to you have saved already?";
+      "I'm nervous for you Jared ... how much money do you have saved already?";
     expect(botReply10).toEqual(expectedReply10);
   });
 
@@ -313,7 +313,7 @@ describe("getBotReply", () => {
     expect(botReply4).toEqual(expectedReply4);
     const botReply5 = getBotReply("8");
     const expectedReply5 =
-      "Jared the risk taker huh? how much money to you have saved already?";
+      "Jared the risk taker huh? how much money do you have saved already?";
     expect(botReply5).toEqual(expectedReply5);
     const botReply6 = getBotReply("My Details");
     const expectedReply6 = `Here are the details I have for you so far.. <br>Name: Jared<br>Age: 29<br>Annual Income: $120000<br>Weekly Savings: $500<br>Risk Tolerance: 8<br>Tell me your total savings to resume or type "restart" to start over.`;
@@ -362,7 +362,7 @@ describe("getBotReply", () => {
     expect(botReply7).toEqual(expectedReply7);
     const botReply8 = getBotReply("7");
     const expectedReply8 =
-      "Jared the risk taker huh? how much money to you have saved already?";
+      "Jared the risk taker huh? how much money do you have saved already?";
     expect(botReply8).toEqual(expectedReply8);
     const botReply9 = getBotReply("RESTART");
     const expectedReply9 = "Hi There, What's your name?";
@@ -392,7 +392,7 @@ describe("getBotReply", () => {
     expect(botReply4).toEqual(expectedReply4);
     const botReply5 = getBotReply("009");
     const expectedReply5 =
-      "I'm nervous for you Jared ... how much money to you have saved already?";
+      "I'm nervous for you Jared ... how much money do you have saved already?";
     expect(botReply5).toEqual(expectedReply5);
     const botReply6 = getBotReply("50000");
     const expectedReply6 =
