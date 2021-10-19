@@ -218,13 +218,13 @@ const getBotReply = (msg) => {
     level = 6;
     risk = msg;
     // assign risk variable
-    return `${name} the risk taker huh? how much money to you have saved already?`;
+    return `${name} the risk taker huh? how much money do you have saved already?`;
   }
   if (level === 5 && msg <= 10) {
     level = 6;
     risk = msg;
     // assign risk variable
-    return `I'm nervous for you ${name} ... how much money to you have saved already?`;
+    return `I'm nervous for you ${name} ... how much money do you have saved already?`;
   }
   if (level === 5) {
     dumb++;
